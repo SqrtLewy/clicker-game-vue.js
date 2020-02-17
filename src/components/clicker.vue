@@ -29,16 +29,20 @@ export default {
 		potatoes: 0,
 		clickstrength: 1,
 		employees: 0,
-		employessStrength: 0 * 0.1,
+		employessStrength: 0,
     };
+	},
+	mounted: function(){
+        this.Reload()
 	},
 	methods: {
 		CollectPotatoe: function(){
-			this.potatoes = this.potatoes + this.clickstrength;
+			this.potatoes += this.clickstrength;
 		},
 		HirePeople: function(){
 			if(this.potatoes>=50){
 			this.employees++;
+			this.employessStrength+=0.1;
 			this.potatoes-=50;
 			}else{
 			alert("You don't have enough potatoes! Come back to the field!");
@@ -46,7 +50,7 @@ export default {
 		},
 		UpgradeHoe: function(){
 			if(this.potatoes>=1000){
-			this.clickstrength += 1;
+			this.clickstrength++;
 			this.potatoes -= 1000;
 			}else{
 			alert("You don't have enough potatoes! Come back to the field!");
@@ -58,10 +62,13 @@ export default {
 		Info2: function(){
 			alert("Each hoe improvement increases the click force by 1.");
 		},
-		Reload(){
-			window.setInterval(function(){
-			this.potatoes += 10;
-			}, 1000);
+        Reload: function () {
+            const self = this
+            setInterval(function() {
+				if(self.employees>0){
+                self.potatoes = self.potatoes + self.employessStrength;
+				}
+            }, 1000);
 		},
 		}
 	}
