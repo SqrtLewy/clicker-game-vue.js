@@ -34,7 +34,7 @@ export default {
 	},
 	methods: {
 		CollectPotatoe: function(){
-			this.potatoes += 1*this.clickstrength;
+			this.potatoes = this.potatoes + this.clickstrength;
 		},
 		HirePeople: function(){
 			if(this.potatoes>=50){
@@ -46,7 +46,8 @@ export default {
 		},
 		UpgradeHoe: function(){
 			if(this.potatoes>=1000){
-			this.clickstrenght++;
+			this.clickstrength += 1;
+			this.potatoes -= 1000;
 			}else{
 			alert("You don't have enough potatoes! Come back to the field!");
 			}
@@ -67,34 +68,35 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.ClickerGame{
-width:100%;
-height:400px;
+.ClickerGame {
+  width: 100%;
+  height: 400px;
 }
-.clicker_left{
-background-color: #FFEFD5;
-border-radius: 35px;
-width:48%;
-height:60%;
-float:left;
+.clicker_left {
+  background-color: #FFEFD5;
+  border-radius: 35px;
+  width: 48%;
+  height: 60%;
+  float: left;
 }
-.clicker_right{
-background-color: #FFEFD5;
-border-radius: 35px;
-width:48%;
-height:60%;
-float:right;
+.clicker_right {
+  background-color: #FFEFD5;
+  border-radius: 35px;
+  width: 48%;
+  height: 60%;
+  float: right;
 }
-button{
-background-color: #FFD700;
-width:250px;
-height:30px;
+button {
+  background-color: #FFD700;
+  width: 250px;
+  height: 30px;
+
+  &:hover {
+    background-color: #FFFF00;
+  }
 }
-button:hover{
-background-color: #FFFF00;
-}
-.info{
-width:30px;
-height:30px;
+.info {
+  width: 30px;
+  height: 30px;
 }
 </style>

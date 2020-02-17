@@ -7,10 +7,11 @@
 
 <style lang="scss" scoped>
 a{
-text-decoration: none;
-color: black;
-}
-a:hover{
-color: gray;
+  text-decoration: none;
+  color: black;
+  
+  &:hover{
+    color: gray;
+  }
 }
 </style>
