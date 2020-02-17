@@ -13,11 +13,10 @@
         <h2>Your company</h2>
 
 		<p>You have: {{ employees }} employees</p>
-		<p>One employee increases harvest by 0.1 potato per second. <br /> Each hoe improvement increases the click force by 1.</p>
 		<br />
-		<button v-on:click="HirePeople">Hire people [50 potatoes]</button>
+		<button v-on:click="HirePeople">Hire people [50 potatoes]</button><button class="info" v-on:click="Info1">?</button>
 		<br />
-		<button v-on:click="UpgradeHoe">Upgrade your hoe! [1000 potatoes]</button>
+		<button v-on:click="UpgradeHoe">Upgrade your hoe! [1000 potatoes]</button><button class="info" v-on:click="Info2">?</button>
     </div>
 	</div>
 </template>
@@ -51,6 +50,12 @@ export default {
 			}else{
 			alert("You don't have enough potatoes! Come back to the field!");
 			}
+		},
+		Info1: function(){
+			alert("One employee increases harvest by 0.1 potato per second.");
+		},
+		Info2: function(){
+			alert("Each hoe improvement increases the click force by 1.");
 		},
 		Reload(){
 			window.setInterval(function(){
@@ -87,5 +92,9 @@ height:30px;
 }
 button:hover{
 background-color: #FFFF00;
+}
+.info{
+width:30px;
+height:30px;
 }
 </style>
