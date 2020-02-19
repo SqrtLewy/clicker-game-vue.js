@@ -9,7 +9,6 @@
 </template>
 
 <style lang="scss">
-
 body{
 background-image: url(assets/background.jpg);
 }

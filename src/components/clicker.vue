@@ -14,9 +14,9 @@
 
 		<p>You have: {{ employees }} employees</p>
 		<br />
-		<button v-on:click="HirePeople">Hire people [50 potatoes]</button><button class="info" v-on:click="Info1">?</button>
-		<br />
-		<button v-on:click="UpgradeHoe">Upgrade your hoe! [1000 potatoes]</button><button class="info" v-on:click="Info2">?</button>
+		<button v-on:click="HirePeople" class="btn btn-primary">Hire people [50 potatoes]</button> <button class="info" v-on:click="Info1">?</button>
+		<br /> <br />
+		<button v-on:click="UpgradeHoe">Upgrade your hoe! [1000 potatoes]</button> <button class="info" v-on:click="Info2">?</button>
     </div>
 	</div>
 </template>
@@ -75,6 +75,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
 .ClickerGame {
   width: 100%;
   height: 400px;
@@ -97,13 +98,23 @@ button {
   background-color: #FFD700;
   width: 250px;
   height: 30px;
+  border: 2px solid #4CAF50;
+  transition-duration: 0.4s;
 
   &:hover {
-    background-color: #FFFF00;
+    background-color: #4CAF50;
+	border: 2px solid #FFD700;
+	box-shadow: 0px 0px 18px 2px rgba(0,0,0,0.75);
   }
 }
 .info {
   width: 30px;
   height: 30px;
+  background-color: gray;
+  
+  &:hover{
+	background-color: darkgrey;
+	box-shadow: 0px 0px 18px 2px rgba(0,0,0,0.75);
+  }
 }
 </style>
