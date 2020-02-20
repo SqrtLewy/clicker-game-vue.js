@@ -12,7 +12,6 @@
 body{
 background-image: url(assets/background.jpg);
 }
-
 #app {
   font-family: Verdana;
   text-align: center;
@@ -29,5 +28,8 @@ background-image: url(assets/background.jpg);
       color: #42b983;
     }
   }
+}
+h2{
+  text-shadow: 1px 1px 2px green;
 }
 </style>

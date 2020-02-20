@@ -1,10 +1,10 @@
 <template>
 	<div class="ClickerGame">
-	<a href="/"><img src="../assets/logo.png" alt="Potatoes time"></a> <br />
+	<a href="/"><img src="../assets/logo.png" alt="Potatoes time"></a> <br /> <br />
     <div class="clicker_left">
         <h2>Harvest</h2>
 
-		<p>You have: {{ potatoes }} potatoes</p>
+		<p>You have: {{ potatoes.toFixed([2]) }} potatoes</p>
 		<p>Your employees collect {{ employessStrength }} potatoes per second.</p>
 		<br />
 		<button v-on:click="CollectPotatoe">Collect</button>
@@ -14,7 +14,7 @@
 
 		<p>You have: {{ employees }} employees</p>
 		<br />
-		<button v-on:click="HirePeople" class="btn btn-primary">Hire people [50 potatoes]</button> <button class="info" v-on:click="Info1">?</button>
+		<button v-on:click="HirePeople">Hire people [50 potatoes]</button> <button class="info" v-on:click="Info1">?</button>
 		<br /> <br />
 		<button v-on:click="UpgradeHoe">Upgrade your hoe! [1000 potatoes]</button> <button class="info" v-on:click="Info2">?</button>
     </div>
@@ -26,11 +26,19 @@ export default {
   name: 'todoapp',
   data() {
     return {
-		potatoes: 0,
+		potatoes: JSON.parse(localStorage.getItem('potatoes')) || 0,
 		clickstrength: 1,
 		employees: 0,
 		employessStrength: 0,
     };
+	},
+	watch: {
+		potatoes: {
+			deep: true,
+			handler() {
+			localStorage.setItem('potatoes', JSON.stringify(this.potatoes));
+		}
+	}
 	},
 	mounted: function(){
         this.Reload()
@@ -42,7 +50,7 @@ export default {
 		HirePeople: function(){
 			if(this.potatoes>=50){
 			this.employees++;
-			this.employessStrength+=0.1;
+			this.employessStrength+=0.10;
 			this.potatoes-=50;
 			}else{
 			alert("You don't have enough potatoes! Come back to the field!");
@@ -53,7 +61,7 @@ export default {
 			this.clickstrength++;
 			this.potatoes -= 1000;
 			}else{
-			alert("You don't have enough potatoes! Come back to the field!");
+				alert("You don't have enough potatoes! Come back to the field!");
 			}
 		},
 		Info1: function(){
@@ -75,7 +83,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
 .ClickerGame {
   width: 100%;
   height: 400px;
