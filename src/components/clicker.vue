@@ -5,7 +5,7 @@
         <h2>Harvest</h2>
 
 		<p>You have: {{ potatoes.toFixed([2]) }} potatoes</p>
-		<p>Your employees collect {{ employessStrength }} potatoes per second.</p>
+		<p>Your employees collect {{ employessStrength.toFixed([2]) }} potatoes per second.</p>
 		<br />
 		<button v-on:click="CollectPotatoe">Collect</button>
     </div>
@@ -27,9 +27,9 @@ export default {
   data() {
     return {
 		potatoes: JSON.parse(localStorage.getItem('potatoes')) || 0,
-		clickstrength: 1,
-		employees: 0,
-		employessStrength: 0,
+		clickstrength: JSON.parse(localStorage.getItem('clickstrength')) || 1,
+		employees: JSON.parse(localStorage.getItem('employees')) || 0,
+		employessStrength: JSON.parse(localStorage.getItem('employessStrength')) || 0,
     };
 	},
 	watch: {
@@ -38,7 +38,25 @@ export default {
 			handler() {
 			localStorage.setItem('potatoes', JSON.stringify(this.potatoes));
 		}
-	}
+	},
+		clickstrength: {
+			deep: true,
+			handler() {
+			localStorage.setItem('clickstrength', JSON.stringify(this.clickstrength));
+		}
+	},
+		employees: {
+			deep: true,
+			handler() {
+			localStorage.setItem('employees', JSON.stringify(this.employees));
+		}
+	},
+		employessStrength: {
+			deep: true,
+			handler() {
+			localStorage.setItem('employessStrength', JSON.stringify(this.employessStrength));
+		}
+	},
 	},
 	mounted: function(){
         this.Reload()
