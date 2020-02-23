@@ -4,9 +4,20 @@
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link>
     </div>
+	<gameHeader />
     <router-view />
   </div>
 </template>
+
+<script>
+    import gameHeader from './components/gameHeader.vue'
+    export default {
+        name: 'App',
+        components: {
+            gameHeader,
+        },
+    }
+</script>
 
 <style lang="scss">
 body{

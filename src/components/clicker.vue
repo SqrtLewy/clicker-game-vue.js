@@ -1,6 +1,5 @@
 <template>
 	<div class="ClickerGame">
-	<a href="/"><img src="../assets/logo.png" alt="Potatoes time"></a> <br /> <br />
     <div class="clicker_left">
         <h2>Harvest</h2>
 
@@ -104,6 +103,7 @@ export default {
 .ClickerGame {
   width: 100%;
   height: 400px;
+  margin-bottom: -40px;
 }
 .clicker_left {
   background-color: #FFEFD5;
