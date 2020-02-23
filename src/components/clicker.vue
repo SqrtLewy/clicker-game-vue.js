@@ -3,15 +3,15 @@
     <div class="clicker_left">
         <h2>Harvest</h2>
 
-		<p>You have: {{ potatoes.toFixed([2]) }} potatoes</p>
-		<p>Your employees collect {{ employessStrength.toFixed([2]) }} potatoes per second.</p>
+		<p>You have: <b>{{ potatoes.toFixed([2]) }}</b> potatoes.</p>
+		<p>Your employees collect <b>{{ employessStrength.toFixed([2]) }}</b> potatoes per second. Click force: <b>{{ clickstrength.toFixed([2]) }}</b>.</p>
 		<br />
 		<button v-on:click="CollectPotatoe">Collect</button>
     </div>
 	<div class="clicker_right">
         <h2>Your company</h2>
 
-		<p>You have: {{ employees }} employees</p>
+		<p>You have: <b>{{ employees }}</b> employees.</p>
 		<br />
 		<button v-on:click="HirePeople">Hire people [50 potatoes]</button> <button class="info" v-on:click="Info1">?</button>
 		<br /> <br />
@@ -103,7 +103,6 @@ export default {
 .ClickerGame {
   width: 100%;
   height: 400px;
-  margin-bottom: -40px;
 }
 .clicker_left {
   background-color: #FFEFD5;
