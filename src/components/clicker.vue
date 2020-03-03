@@ -4,6 +4,8 @@
         <h2>Harvest</h2>
 
 		<p>You have: <b>{{ potatoes.toFixed([2]) }}</b> potatoes.</p>
+		<p v-if="congrats" style="color: #800080; font-weight: bold;">Congratulations! You've got 100k potatoes!</p>
+		<p v-else></p>
 		<p>Your employees collect <b>{{ employessStrength.toFixed([2]) }}</b> potatoes per second. Click force: <b>{{ clickstrength.toFixed([2]) }}</b>.</p>
 		<br />
 		<button v-on:click="CollectPotatoe">Collect</button>
@@ -92,6 +94,12 @@ export default {
             setInterval(function() {
 				if(self.employees>0){
                 self.potatoes = self.potatoes + self.employessStrength;
+				}
+				if(self.potatoes>100000){
+					self.congrats = true;
+				}
+				else{
+					self.congrats = false;
 				}
             }, 1000);
 		},
