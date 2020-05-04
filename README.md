@@ -1,4 +1,7 @@
-# clicker
+# Clicker game in Vue.js
+### A simple browser game made in Vue.
+
+## Play game <a href="https://sqrtlewy.github.io/clicker-game-vue.js/">here</a>
 
 ## Project setup
 ```
